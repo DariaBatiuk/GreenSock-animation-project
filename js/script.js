@@ -58,3 +58,22 @@ tlPromo.to('.promo__title span:first-child', {
 	x: 0,
 	ease: "back.out(1.1)"
 }, '<')
+
+const tlImages = gsap.timeline({
+	scrollTrigger: {
+		trigger: '.promo',
+		start: 'top top',
+		pin: true,
+		end: '+=50%',
+		scrub: 1
+	}
+})
+tlImages.to('.promo__bottom', {
+	duration: 1, 
+	opacity: 1,
+	y: 0
+})
+tlImages.fromTo('.promo__bottom img', {y:80}, {
+	y: -40
+}, '<')
+
