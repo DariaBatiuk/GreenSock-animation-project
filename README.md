@@ -33,3 +33,5 @@ MIT
 
 # Mock Up
 ![image](https://user-images.githubusercontent.com/83068010/234381633-6927b265-849c-45a3-a995-5c62098c953b.png)
+![image](https://user-images.githubusercontent.com/83068010/234382804-492d4b60-7280-46a3-abcf-7d92cde2e40e.png)
+
