@@ -46,7 +46,146 @@ function findHeight() {
   }
 }
 
-const tlPromo = gsap.timeline({});
+function animatiomSmall () {
+	// mobile setup code here...
+
+	const tlPromo = gsap.timeline({});
+tlPromo
+  .to(".promo__title span:first-child", {
+    duration: 1.2,
+    x: 0,
+    ease: "back.out(1.1)",
+  })
+  .to(
+    ".promo__title span:last-child",
+    {
+      duration: 1.2,
+      x: 0,
+      ease: "back.out(1.1)",
+    },
+    "<"
+  );
+
+const tlImages = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".promo",
+    start: "top top",
+    end: "+=50%",
+    scrub: 1,
+  },
+});
+tlImages.to(".promo__bottom", {
+  duration: 1,
+  opacity: 1,
+  y: 0,
+});
+tlImages.fromTo(
+  ".promo__bottom img",
+  { y: 80 },
+  {
+    y: -40,
+  },
+  "<"
+);
+
+const tlLines = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".choose__wrap",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: true,
+  },
+});
+tlLines
+  .to(".choose__wrap .top", {
+    xPercent: -60,
+  })
+  .to(
+    ".choose__wrap .bottom",
+    {
+      xPercent: 13,
+    },
+    "<"
+  );
+
+gsap.from(".rates-card", {  opacity: 0,
+  yPercent: 50,
+  scrollTrigger: {
+    trigger: ".rates",
+    start: "top 80%",
+		end: 'bottom bottom',
+    scrub: true
+  },
+});
+
+const tlPoint = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".point",
+    start: "top center",
+		end: '+=400',
+		toggleActions: 'play reverse play reverse',
+  }
+});
+
+tlPoint.to(".point", {
+  backgroundColor: "#000"
+})
+.to( ".point__title", {
+    color: "#fff"
+  }, "<")
+
+.to( ".point__descr", {
+    color: "#fff",
+  }, "<")
+
+const tlImg = gsap.timeline({
+	scrollTrigger: {
+		trigger: '.point__wrapper',
+		start: 'top center',
+		end: 'bottom bottom',
+		// pin: true,
+		scrub: 1,
+	}
+})
+tlImg.to('.point__img:first-child img', {
+	scale:1
+})
+tlImg.to('.point__img:last-child img', {
+	scale:0
+}, "<")
+
+gsap.to('.footer__point', {
+	y: 0, 
+	scrollTrigger: {
+		trigger: '.main',
+		start: 'top top',
+		end: 'bottom 70%',
+		scrub: true,
+	}
+})
+
+const tlFooter = gsap.timeline({
+	scrollTrigger: {
+		trigger: '.footer',
+		start: 'top 70%',
+		end: 'bottom bottom',
+		scrub: 1,
+	}
+})
+tlFooter.to('.footer__point', {
+	scale:1, 
+})
+.to('.footer__point svg path', {
+	fill: '#FF0027',
+	opacity: 1
+}, '<')
+}
+
+let mediaAnimation = gsap.matchMedia();
+
+mediaAnimation.add("(min-width: 1025px)", () => {
+  // desktop setup code here...
+	const tlPromo = gsap.timeline({});
 tlPromo
   .to(".promo__title span:first-child", {
     duration: 1.2,
@@ -107,7 +246,6 @@ tlLines
   );
 
 gsap.from(".rates-card", {
-  duration: 1,
   stagger: 0.3,
   opacity: 0,
   yPercent: 100,
@@ -167,3 +305,54 @@ tlImg.to('.point__img:first-child img', {
 tlImg.to('.point__img:last-child img', {
 	scale:0
 }, "<")
+
+gsap.to('.footer__point', {
+	y: 0, 
+	scrollTrigger: {
+		trigger: '.main',
+		start: 'top top',
+		end: 'bottom 70%',
+		scrub: true,
+	}
+})
+
+const tlFooter = gsap.timeline({
+	scrollTrigger: {
+		trigger: '.footer',
+		start: 'top 70%',
+		end: 'bottom bottom',
+		scrub: 1,
+	}
+})
+tlFooter.to('.footer__point', {
+	scale:1, 
+})
+.to('.footer__point svg path', {
+	fill: '#FF0027',
+	opacity: 1
+}, '<')
+});
+
+mediaAnimation.add("(min-width: 577px) and (max-width: 1024px)", () => {
+  animatiomSmall();
+});
+
+mediaAnimation.add("(max-width: 576px)", () => {
+	  animatiomSmall();
+});
+
+
+// let end = '';
+// let start = '';
+// scrollTrigger.matchMedia({
+// 	'(min-width:768px)':function(){
+// 		start = 'top center';
+// 		end = 'bottom 20%';
+// 		crateScrollTriggers();
+// 	},
+// 	'(max-width:797px)':function(){
+// 		start = 'top 95%';
+// 		end = 'bottom center';
+// 		crateScrollTriggers();
+// 	}
+// })

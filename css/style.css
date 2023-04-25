@@ -797,6 +797,12 @@ img {
 }
 
 @media(max-width: 1024px){
+		.plus{
+			height: auto;
+		}
+		.plus__wrapper{
+			flex-direction: column;
+		}
     .plus-block__text {
         height: auto;
     }
@@ -975,7 +981,8 @@ img {
     position: fixed;
     right: calc((100vw - 1200px + 145px) / 2);
     bottom: 232px;
-    transform: translateX(50%);
+    transform: translateX(50%) scale(0.6) translateY(-428px);
+		/* transform: scale(); */
     max-width: 385px;
     z-index: -1;
 }
@@ -986,8 +993,9 @@ img {
 }
 
 .footer__point svg path {
-    fill: #FF0027;
-    opacity: 1;
+    /* fill: #FF0027; */
+		fill: #9AA2A5;
+    opacity: 0.1;
 }
 
 
