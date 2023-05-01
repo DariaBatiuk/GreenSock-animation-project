@@ -122,14 +122,20 @@ const tlPoint = gsap.timeline({
   scrollTrigger: {
     trigger: ".point",
     start: "top center",
-		end: '+=400',
+		end: 'bottom bottom',
 		toggleActions: 'play reverse play reverse',
   }
 });
 
-tlPoint.to(".point", {
+tlPoint.to("body", {
   backgroundColor: "#000"
 })
+.to(".plus-block__text", {
+  color: "#fff"
+}, "<")
+.to(".plus-block__title span:last-child", {
+  color: "#fff"
+}, "<")
 .to( ".point__title", {
     color: "#fff"
   }, "<")
@@ -280,9 +286,15 @@ const tlPoint = gsap.timeline({
   }
 });
 
-tlPoint.to(".point", {
+tlPoint.to("body", {
   backgroundColor: "#000"
 })
+.to(".plus-block__text", {
+  color: "#fff"
+}, "<")
+.to(".plus-block__title span:last-child", {
+  color: "#fff"
+}, "<")
 .to( ".point__title", {
     color: "#fff"
   }, "<")
@@ -342,17 +354,3 @@ mediaAnimation.add("(max-width: 576px)", () => {
 });
 
 
-// let end = '';
-// let start = '';
-// scrollTrigger.matchMedia({
-// 	'(min-width:768px)':function(){
-// 		start = 'top center';
-// 		end = 'bottom 20%';
-// 		crateScrollTriggers();
-// 	},
-// 	'(max-width:797px)':function(){
-// 		start = 'top 95%';
-// 		end = 'bottom center';
-// 		crateScrollTriggers();
-// 	}
-// })
