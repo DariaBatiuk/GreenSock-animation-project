@@ -49,6 +49,16 @@ function findHeight() {
 function animatiomSmall () {
 	// mobile setup code here...
 
+	gsap.to('.progress-bar', {
+		width: '100%',
+		scrollTrigger: {
+			trigger: 'body',
+			start: 'top top',
+			end: 'bottom bottom',
+			scrub: true,
+		}
+	})
+
 	const tlPromo = gsap.timeline({});
 tlPromo
   .to(".promo__title span:first-child", {

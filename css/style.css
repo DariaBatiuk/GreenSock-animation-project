@@ -74,6 +74,23 @@ img {
     height: auto;
 }
 
+.progress-bar{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 5px;
+	background-color: #FF0027;
+	display: none;
+	z-index: 10;
+}
+@media(max-width: 1024px) {
+	.progress-bar{
+		display: block;
+	}
+}
+
+
 .big-title {
     margin: 0;
     width: 100%;
